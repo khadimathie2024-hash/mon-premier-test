@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AMNA LEUP SN</title>
+<link rel="manifest" href="manifest.json">
 <style>
 body{font-family:Arial;margin:0;background:#f5f5f5}
 .header{background:#008000;color:white;padding:15px;text-align:center}
@@ -22,28 +23,19 @@ body{font-family:Arial;margin:0;background:#f5f5f5}
 <div class="search"><input id="search" onkeyup="chercher()" placeholder="Chercher..."></div>
 <div class="products" id="products"></div>
 <div id="cart">Panier : 0 FCFA <button onclick="commander()">Commander</button></div>
-
 <script>
-let produits = [
- {nom:"Samsung A55", prix:285000, image:"https://via.placeholder.com/150?text=Phone"},
- {nom:"Nike Air Max", prix:45000, image:"https://via.placeholder.com/150?text=Shoes"},
- {nom:"Chic Chemise", prix:12000, image:"https://via.placeholder.com/150?text=Wax"},
- {nom:"Robe Africaine", prix:25000, image:"https://via.placeholder.com/150?text=Robe"},
- {nom:"Tecno Spark 20", prix:95000, image:"https://via.placeholder.com/150?text=Tecno"}
+let produits=[
+{nom:"Samsung A55",prix:285000,image:"https://via.placeholder.com/150?text=Phone"},
+{nom:"Nike Air Max",prix:45000,image:"https://via.placeholder.com/150?text=Shoes"},
+{nom:"Chic Chemise",prix:12000,image:"https://via.placeholder.com/150?text=Wax"},
+{nom:"Robe Africaine",prix:25000,image:"https://via.placeholder.com/150?text=Robe"},
+{nom:"Tecno Spark 20",prix:95000,image:"https://via.placeholder.com/150?text=Tecno"}
 ];
-let total=0, panier=[];
-
-function afficher(liste){
- let html="";
- for(let p of liste){
-   html+=`<div class="card"><img src="${p.image}"><h4>${p.nom}</h4><div class="price">${p.prix} FCFA</div><button class="btn" onclick="ajouter(${p.prix},'${p.nom}')">Ajouter</button></div>`;
- }
- document.getElementById("products").innerHTML=html;
-}
-function ajouter(prix,nom){ total+=prix; panier.push(nom); document.getElementById("cart").innerHTML=`Panier : ${total} FCFA <button onclick="commander()">Commander</button>`; }
-function chercher(){ let q=document.getElementById("search").value.toLowerCase(); afficher(produits.filter(pr=>pr.nom.toLowerCase().includes(q))); }
-function commander(){ if(panier.length==0){alert("Ajoute un produit d'abord"); return;} let msg=`Salam AMNA LEUP SN, je veux: ${panier.join(", ")} Total: ${total} FCFA`; window.open(`https://wa.me/221XXXXXXXX?text=${encodeURIComponent(msg)}`); }
-
+let total=0,panier=[];
+function afficher(liste){let html="";for(let p of liste){html+=`<div class="card"><img src="${p.image}"><h4>${p.nom}</h4><div class="price">${p.prix} FCFA</div><button class="btn" onclick="ajouter(${p.prix},'${p.nom}')">Ajouter</button></div>`;}document.getElementById("products").innerHTML=html;}
+function ajouter(prix,nom){total+=prix;panier.push(nom);document.getElementById("cart").innerHTML=`Panier : ${total} FCFA <button onclick="commander()">Commander</button>`;}
+function chercher(){let q=document.getElementById("search").value.toLowerCase();afficher(produits.filter(pr=>pr.nom.toLowerCase().includes(q)));}
+function commander(){if(panier.length==0){alert("Ajoute un produit d'abord");return;}let msg=`Salam AMNA LEUP SN, je veux: ${panier.join(", ")} Total: ${total} FCFA`;window.open(`https://wa.me/221XXXXXXXX?text=${encodeURIComponent(msg)}`);}
 afficher(produits);
 </script>
 </body>
