@@ -2,19 +2,19 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMNA LEUP SN</title>
+<title>AMNA LEUP SN - MARCHE COMPLET</title>
 <style>
 *{font-family:Arial,sans-serif;box-sizing:border-box;margin:0}
-body{background:#f2f2f2;padding-bottom:80px}
+body{background:#f2f2f2;padding-bottom:85px}
 .top{background:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #0a7a42;position:sticky;top:0;z-index:10}
-.top b{color:#0a7a42;font-size:14px}
+.top b{color:#0a7a42;font-size:13px}
 .btn-top{border:1.5px solid #0a7a42;padding:6px 10px;border-radius:20px;font-size:9px;font-weight:800;background:#fff;margin-left:3px}
 .sec{background:#fff;margin:10px;border-radius:14px;padding:10px;border:2px solid #0a7a42}
 .sec h2{background:#0a7a42;color:#fff;padding:8px;border-radius:20px;font-size:11px;text-align:center;margin-bottom:10px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .cage{border:1px solid #ddd;border-radius:12px;padding:8px;text-align:center;background:#fff}
 .cage img{width:100%;height:90px;object-fit:cover;border-radius:8px}
-.cage p{font-size:11px;font-weight:700;margin:5px 0;min-height:26px}
+.cage p{font-size:11px;font-weight:700;margin:5px 0;min-height:30px}
 .btn{width:100%;border:none;padding:7px;border-radius:20px;font-size:10px;font-weight:800;margin-top:4px;color:#fff}
 .green{background:#0a7a42}.black{background:#111}.orange{background:#ff8800}.whatsapp{background:#25D366}
 .footer{position:fixed;bottom:0;left:0;width:100%;background:#fff;border-top:2px solid #0a7a42;display:flex;padding:7px;gap:4px;z-index:20}
@@ -27,86 +27,139 @@ body{background:#f2f2f2;padding-bottom:80px}
 </style>
 </head>
 <body>
-<div class="top"><b>AMNA LEUP SN - MARCHE COMPLET</b><div><button class="btn-top" onclick="openModal('compteModal')" id="compteBtn">COMPTE</button><button class="btn-top" style="background:#ff8800;color:#fff;border-color:#ff8800" onclick="openModal('vendeurModal')">VENDRE</button><button class="btn-top" style="background:#0a7a42;color:#fff" onclick="openModal('panierModal')">PANIER <span id="pcount">0</span></button></div></div>
+<div class="top"><b>AMNA LEUP SN</b><div><button class="btn-top" onclick="openModal('compteModal')" id="compteBtn">COMPTE</button><button class="btn-top" style="background:#ff8800;color:#fff;border-color:#ff8800" onclick="openModal('vendeurModal')">VENDRE</button><button class="btn-top" style="background:#0a7a42;color:#fff" onclick="openModal('panierModal')">PANIER <span id="pcount">0</span></button></div></div>
 
-<div class="sec"><h2>ALIMENTATION - Riz Huile Sucre Cafe Chocolat Beurre Lait</h2><div class="grid">
+<div class="sec"><h2>ALIMENTATION - Riz Huile Sucre Cafe Viande Poulet Poisson</h2><div class="grid">
 <div class="cage"><img src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300"><p>Riz 25kg</p><button class="btn black" onclick="addPanier('Riz 25kg')">PANIER</button></div>
 <div class="cage"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300"><p>Huile 20L</p><button class="btn black" onclick="addPanier('Huile 20L')">PANIER</button></div>
 <div class="cage"><img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=300"><p>Sucre 1kg</p><button class="btn black" onclick="addPanier('Sucre 1kg')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300"><p>Viande Boeuf 1kg Crue</p><button class="btn black" onclick="addPanier('Viande Boeuf 1kg Crue')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300"><p>Viande Mouton Crue</p><button class="btn black" onclick="addPanier('Viande Mouton Crue')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=300"><p>Poulet Entier Cru</p><button class="btn black" onclick="addPanier('Poulet Entier Cru')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=300"><p>Poisson Frais Cru</p><button class="btn black" onclick="addPanier('Poisson Frais Cru')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1604909052743-94e8c3229a54?w=300"><p>Poulet Ailes / Cuisses Crues</p><button class="btn black" onclick="addPanier('Poulet Ailes Cuisses')">PANIER</button></div>
 <div class="cage"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=300"><p>Cafe Touba</p><button class="btn black" onclick="addPanier('Cafe Touba')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=300"><p>Chocolat</p><button class="btn black" onclick="addPanier('Chocolat')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=300"><p>Lait / Beurre</p><button class="btn black" onclick="addPanier('Lait Beurre')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300"><p>Oignon / Pomme de terre</p><button class="btn black" onclick="addPanier('Oignon Pomme de terre')">PANIER</button></div>
 </div></div>
 
-<div class="sec"><h2>MOTO - Jakarta Yamaha Honda Suzuki KTM</h2><div class="grid">
+<div class="sec"><h2>MOTO - Toutes les Motos</h2><div class="grid">
 <div class="cage"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300"><p>Jakarta 125</p><button class="btn black" onclick="addPanier('Jakarta 125')">PANIER</button></div>
-<div class="cage"><img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=300"><p>Yamaha</p><button class="btn black" onclick="addPanier('Yamaha')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=300"><p>Yamaha 125</p><button class="btn black" onclick="addPanier('Yamaha 125')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=300"><p>Honda 125</p><button class="btn black" onclick="addPanier('Honda 125')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=300"><p>Suzuki / KTM</p><button class="btn black" onclick="addPanier('Suzuki KTM')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300"><p>TVS / Apache</p><button class="btn black" onclick="addPanier('TVS Apache')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300"><p>Scooter / Moto Electrique</p><button class="btn black" onclick="addPanier('Scooter Electrique')">PANIER</button></div>
 </div></div>
 
-<div class="sec"><h2>VOITURE - Toyota Hyundai Kia Mercedes Range</h2><div class="grid">
+<div class="sec"><h2>VOITURE - Toutes les Voitures</h2><div class="grid">
 <div class="cage"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=300"><p>Toyota Corolla</p><button class="btn black" onclick="addPanier('Toyota Corolla')">PANIER</button></div>
-<div class="cage"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300"><p>Hyundai / Kia</p><button class="btn black" onclick="addPanier('Hyundai Kia')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=300"><p>Toyota Hilux</p><button class="btn black" onclick="addPanier('Toyota Hilux')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"><p>Mercedes / Range Rover</p><button class="btn black" onclick="addPanier('Mercedes Range Rover')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300"><p>Hyundai / Kia / Peugeot</p><button class="btn black" onclick="addPanier('Hyundai Kia Peugeot')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300"><p>Toyota Yaris / Avensis</p><button class="btn black" onclick="addPanier('Toyota Yaris')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"><p>4x4 / Pickup</p><button class="btn black" onclick="addPanier('4x4 Pickup')">PANIER</button></div>
 </div></div>
 
-<div class="sec"><h2>LOGEMENT - Vente et Location</h2><div class="grid">
+<div class="sec"><h2>LOGEMENT - Vente Location Appartement Studio Chambre</h2><div class="grid">
 <div class="cage"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=300"><p>Maison a vendre</p><button class="btn black" onclick="addPanier('Maison a vendre')">PANIER</button></div>
 <div class="cage"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300"><p>Maison a louer</p><button class="btn black" onclick="addPanier('Maison a louer')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=300"><p>Appartement 2 chambres</p><button class="btn black" onclick="addPanier('Appartement 2 chambres')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=300"><p>Appartement 3 chambres</p><button class="btn black" onclick="addPanier('Appartement 3 chambres')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=300"><p>Studio / 1 piece</p><button class="btn black" onclick="addPanier('Studio 1 piece')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=300"><p>Chambre a louer</p><button class="btn black" onclick="addPanier('Chambre a louer')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=300"><p>Terrain a vendre</p><button class="btn black" onclick="addPanier('Terrain a vendre')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=300"><p>Magasin / Boutique</p><button class="btn black" onclick="addPanier('Magasin Boutique')">PANIER</button></div>
 </div></div>
 
-<div class="sec"><h2>INFORMATIQUE - HP Dell MacBook Imprimante</h2><div class="grid">
+<div class="sec"><h2>MAISON - Tous Accessoires Maison</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300"><p>Canape / Salon</p><button class="btn black" onclick="addPanier('Canape Salon')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=300"><p>Lit / Matelas</p><button class="btn black" onclick="addPanier('Lit Matelas')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=300"><p>Frigo / Congelateur</p><button class="btn black" onclick="addPanier('Frigo Congelateur')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=300"><p>Clim / Ventilateur</p><button class="btn black" onclick="addPanier('Clim Ventilateur')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=300"><p>Marmite / Casserole</p><button class="btn black" onclick="addPanier('Marmite Casserole')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=300"><p>Assiettes / Verres / Seau</p><button class="btn black" onclick="addPanier('Assiettes Verres')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=300"><p>Rideaux / Drap / Tapis</p><button class="btn black" onclick="addPanier('Rideaux Drap Tapis')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=300"><p>Balai / Serpillere / Poubelle</p><button class="btn black" onclick="addPanier('Balai Serpillere')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=300"><p>Cuisiniere / Gaz</p><button class="btn black" onclick="addPanier('Cuisiniere Gaz')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300"><p>Table / Chaise</p><button class="btn black" onclick="addPanier('Table Chaise')">PANIER</button></div>
+</div></div>
+
+<div class="sec"><h2>CONSOLES DE JEUX - PlayStation Xbox Nintendo</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300"><p>PS5 / PS4 / PS3</p><button class="btn black" onclick="addPanier('PS5 PS4 PS3')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300"><p>Xbox Series / Xbox One</p><button class="btn black" onclick="addPanier('Xbox Series')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300"><p>Nintendo Switch</p><button class="btn black" onclick="addPanier('Nintendo Switch')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300"><p>Manette PS5 / Xbox</p><button class="btn black" onclick="addPanier('Manette PS5 Xbox')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300"><p>Jeux PS5 / PS4 / FIFA</p><button class="btn black" onclick="addPanier('Jeux PS5 FIFA')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300"><p>Casque Gaming</p><button class="btn black" onclick="addPanier('Casque Gaming')">PANIER</button></div>
+</div></div>
+
+<div class="sec"><h2>INFORMATIQUE - Accessoires Complets</h2><div class="grid">
 <div class="cage"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300"><p>PC HP Dell</p><button class="btn black" onclick="addPanier('PC HP Dell')">PANIER</button></div>
 <div class="cage"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=300"><p>MacBook</p><button class="btn black" onclick="addPanier('MacBook')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=300"><p>Imprimante / Scanner</p><button class="btn black" onclick="addPanier('Imprimante Scanner')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=300"><p>Clavier / Souris</p><button class="btn black" onclick="addPanier('Clavier Souris')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=300"><p>Cle USB / Disque Dur</p><button class="btn black" onclick="addPanier('Cle USB Disque Dur')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=300"><p>Ecran / Onduleur / Routeur</p><button class="btn black" onclick="addPanier('Ecran Onduleur Routeur')">PANIER</button></div>
 </div></div>
 
-<div class="sec"><h2>SMARTPHONES - iPhone Samsung Tecno Tablette</h2><div class="grid">
-<div class="cage"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300"><p>iPhone 14</p><button class="btn black" onclick="addPanier('iPhone 14')">PANIER</button></div>
-<div class="cage"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300"><p>Samsung / Tecno</p><button class="btn black" onclick="addPanier('Samsung Tecno')">PANIER</button></div>
+<div class="sec"><h2>SMARTPHONES - Accessoires Telephones Complets</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300"><p>iPhone 14 / 13 / 12</p><button class="btn black" onclick="addPanier('iPhone 14 13 12')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300"><p>Samsung / Tecno / Infinix</p><button class="btn black" onclick="addPanier('Samsung Tecno Infinix')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300"><p>Tablette Samsung / iPad</p><button class="btn black" onclick="addPanier('Tablette Samsung iPad')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300"><p>Chargeur / Cable USB</p><button class="btn black" onclick="addPanier('Chargeur Cable USB')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300"><p>Power Bank / Batterie</p><button class="btn black" onclick="addPanier('Power Bank Batterie')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300"><p>Ecouteurs / AirPods / Coque / Vitre</p><button class="btn black" onclick="addPanier('Ecouteurs AirPods')">PANIER</button></div>
 </div></div>
 
 <div class="sec"><h2>VETEMENTS - Homme Femme Chaussures Sacs</h2><div class="grid">
-<div class="cage"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300"><p>Boubou Homme</p><button class="btn black" onclick="addPanier('Boubou Homme')">PANIER</button></div>
-<div class="cage"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300"><p>Wax Femme</p><button class="btn black" onclick="addPanier('Wax Femme')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300"><p>Boubou Homme / T-shirt</p><button class="btn black" onclick="addPanier('Boubou Homme T-shirt')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300"><p>Wax Femme / Voile / Robe</p><button class="btn black" onclick="addPanier('Wax Femme Voile Robe')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300"><p>Chaussures Homme / Femme</p><button class="btn black" onclick="addPanier('Chaussures Homme Femme')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300"><p>Sacs / Casquette / Ceinture</p><button class="btn black" onclick="addPanier('Sacs Casquette Ceinture')">PANIER</button></div>
 </div></div>
 
-<div class="sec"><h2>MAISON - Canape Lit Frigo Clim Marmite Rideaux</h2><div class="grid">
-<div class="cage"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300"><p>Canape / Lit</p><button class="btn black" onclick="addPanier('Canape Lit')">PANIER</button></div>
-<div class="cage"><img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=300"><p>Frigo / Clim</p><button class="btn black" onclick="addPanier('Frigo Clim')">PANIER</button></div>
+<div class="sec"><h2>FEMME BEAUTE - Accessoires Femme</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300"><p>Meches / Perruques</p><button class="btn black" onclick="addPanier('Meches Perruques')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300"><p>Maquillage / Rouge a levres</p><button class="btn black" onclick="addPanier('Maquillage Rouge')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300"><p>Parfum Femme / Homme</p><button class="btn black" onclick="addPanier('Parfum Femme Homme')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300"><p>Creme / Lotion / Savon</p><button class="btn black" onclick="addPanier('Creme Lotion Savon')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300"><p>Lisseur / Seche-cheveux</p><button class="btn black" onclick="addPanier('Lisseur Seche-cheveux')">PANIER</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300"><p>Bijoux / Boucles / Bracelet</p><button class="btn black" onclick="addPanier('Bijoux Boucles Bracelet')">PANIER</button></div>
 </div></div>
 
 <div id="vendeurProducts"></div>
-
 <div class="footer">
-<button class="green" onclick="openModal('panierModal')">PANIER <span id="pcount2">0</span></button>
+<button class="green" onclick="openModal('panierModal')">PANIER <span id="pcount">0</span></button>
 <button class="orange" onclick="openModal('vendeurModal')">VENDRE</button>
 <button style="background:#128C7E" onclick="openModal('serviceModal')">SERVICE CLIENT</button>
 </div>
 
-<div class="modal" id="compteModal"><div class="box"><h3>Compte</h3><div id="loggedOut"><input id="nom" placeholder="Nom"><input id="tel" placeholder="Tel"><input id="pass" type="password" placeholder="Pass"><select id="role"><option value="client">CLIENT</option><option value="vendeur">VENDEUR</option></select><button class="btn green" onclick="creerCompte()">CREER</button><hr style="margin:8px 0"><input id="telL" placeholder="Tel"><input id="passL" type="password" placeholder="Pass"><button class="btn green" onclick="login()">CONNECTER</button><p style="font-size:8px;text-align:center">Admin: 754560985 / AMNA2026</p></div><div id="loggedIn" style="display:none"><p id="bienvenue" style="text-align:center;font-weight:800"></p><button class="btn orange" id="btnAdmin" style="display:none" onclick="openModal('adminModal')">PANEL ADMIN - VALIDER</button><button class="btn" style="background:red;margin-top:8px" onclick="logout()">DECONNEXION</button></div><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
-
-<div class="modal" id="vendeurModal"><div class="box"><h3>VENDRE PRODUIT - Photo seulement</h3><input id="vNom" placeholder="Nom produit"><select id="vCat"><option>ALIMENTATION - Riz Huile Sucre Cafe Chocolat Beurre Lait</option><option>MOTO - Jakarta Yamaha Honda Suzuki KTM</option><option>VOITURE - Toyota Hyundai Kia Mercedes Range</option><option>LOGEMENT - Vente et Location</option><option>INFORMATIQUE - HP Dell MacBook Imprimante</option><option>SMARTPHONES - iPhone Samsung Tecno Tablette</option><option>VETEMENTS - Homme Femme Chaussures Sacs</option><option>MAISON - Canape Lit Frigo Clim Marmite Rideaux</option></select><input id="vImg" placeholder="Lien photo ou vide"><input id="vTel" placeholder="Ton Whatsapp"><textarea id="vDesc" placeholder="Description"></textarea><button class="btn whatsapp" onclick="ajouterProduit()">ENVOYER POUR VALIDATION</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
-
+<div class="modal" id="compteModal"><div class="box"><h3>Compte</h3><div id="loggedOut"><input id="nom" placeholder="Nom"><input id="tel" placeholder="Tel"><input id="pass" type="password" placeholder="Pass"><select id="role"><option value="client">CLIENT</option><option value="vendeur">VENDEUR</option></select><button class="btn green" onclick="creerCompte()">CREER</button><hr style="margin:8px 0"><input id="telL" placeholder="Tel"><input id="passL" type="password" placeholder="Pass"><button class="btn green" onclick="login()">CONNECTER</button><p style="font-size:8px;text-align:center">Admin: 754560985 / AMNA2026</p></div><div id="loggedIn" style="display:none"><p id="bienvenue" style="text-align:center;font-weight:800"></p><button class="btn orange" id="btnAdmin" style="display:none" onclick="openModal('adminModal')">PANEL ADMIN</button><button class="btn" style="background:red;margin-top:8px" onclick="logout()">DECONNEXION</button></div><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
+<div class="modal" id="vendeurModal"><div class="box"><h3>VENDRE - Photo seulement</h3><input id="vNom" placeholder="Nom produit"><select id="vCat"><option>ALIMENTATION - Riz Huile Sucre Cafe Viande Poulet Poisson</option><option>MOTO - Toutes les Motos</option><option>VOITURE - Toutes les Voitures</option><option>LOGEMENT - Vente Location Appartement Studio Chambre</option><option>MAISON - Tous Accessoires Maison</option><option>CONSOLES DE JEUX - PlayStation Xbox Nintendo</option><option>INFORMATIQUE - Accessoires Complets</option><option>SMARTPHONES - Accessoires Telephones Complets</option><option>VETEMENTS - Homme Femme Chaussures Sacs</option><option>FEMME BEAUTE - Accessoires Femme</option></select><input id="vImg" placeholder="Lien photo ou vide"><input id="vTel" placeholder="Ton Whatsapp"><textarea id="vDesc" placeholder="Description"></textarea><button class="btn whatsapp" onclick="ajouterProduit()">ENVOYER POUR VALIDATION</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
 <div class="modal" id="panierModal"><div class="box"><h3>Panier</h3><div id="panierList"></div><button class="btn green" onclick="commander()">COMMANDER</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
-
 <div class="modal" id="serviceModal"><div class="box"><h3>SERVICE CLIENTELE - 75 456 09 85</h3><input id="sProduit" placeholder="Produit"><textarea id="sDesc" placeholder="Ton probleme..."></textarea><button class="btn whatsapp" onclick="envoyerService()">ENVOYER WHATSAPP</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
-
 <div class="modal" id="adminModal"><div class="box"><h3>ADMIN - A VALIDER</h3><div id="adminList"></div><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
-
 <script>
 let WA="221754560985";
-let allProducts=JSON.parse(localStorage.getItem('amna_vendeur_prods_sansprix')||'[]');
+let allProducts=JSON.parse(localStorage.getItem('amna_complet_sansprix')||'[]');
 let user=JSON.parse(localStorage.getItem('amna_user')||'null');
 let panier=JSON.parse(localStorage.getItem('amna_panier')||'[]');
-function save(){localStorage.setItem('amna_vendeur_prods_sansprix',JSON.stringify(allProducts));}
+function save(){localStorage.setItem('amna_complet_sansprix',JSON.stringify(allProducts));}
 function renderAll(){
 let html=""; let cats={};
 allProducts.filter(p=>p.statut=='valide').forEach(p=>{if(!cats[p.cat]) cats[p.cat]=[]; cats[p.cat].push(p);});
 for(let cat in cats){
-html+=`<div class="sec"><h2>${cat} - Vendeurs Valides</h2><div class="grid">`;
+html+=`<div class="sec"><h2>${cat} - Vendeurs</h2><div class="grid">`;
 cats[cat].forEach(p=>{
 html+=`<div class="cage"><img src="${p.img}"><p>${p.name}</p><div style="font-size:8px;color:#ff8800">${p.vendeur}</div><button class="btn black" onclick="addPanier('${p.name}')">PANIER</button></div>`;
 });
 html+=`</div></div>`;
 }
 document.getElementById('vendeurProducts').innerHTML=html;
-document.getElementById('pcount').innerText=panier.length; document.getElementById('pcount2').innerText=panier.length;
+let counts=document.querySelectorAll('#pcount');
+counts.forEach(c=>c.innerText=panier.length);
 if(user){document.getElementById('compteBtn').innerText=user.nom.split(' ')[0]; document.getElementById('loggedOut').style.display='none'; document.getElementById('loggedIn').style.display='block'; document.getElementById('bienvenue').innerText=user.nom+" - "+user.tel; document.getElementById('btnAdmin').style.display=(user.tel=="754560985"||user.role=="admin")?"block":"none";} else {document.getElementById('compteBtn').innerText="COMPTE"; document.getElementById('loggedOut').style.display='block'; document.getElementById('loggedIn').style.display='none';}
 }
 function openModal(id){closeModals();document.getElementById(id).classList.add('show'); if(id=='panierModal') renderPanier(); if(id=='adminModal') renderAdmin();}
@@ -114,10 +167,18 @@ function closeModals(){document.querySelectorAll('.modal').forEach(m=>m.classLis
 function creerCompte(){let nom=document.getElementById('nom').value, tel=document.getElementById('tel').value, pass=document.getElementById('pass').value, role=document.getElementById('role').value; if(!nom||!tel||!pass) return alert("Remplis"); let users=JSON.parse(localStorage.getItem('amna_users')||'[]'); users.push({nom,tel,pass,role}); localStorage.setItem('amna_users',JSON.stringify(users)); user={nom,tel,role}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals();}
 function login(){let tel=document.getElementById('telL').value, pass=document.getElementById('passL').value; if(tel=="754560985" && pass=="AMNA2026"){user={nom:"Khadi ADMIN",tel,role:"admin"}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals(); return;} let users=JSON.parse(localStorage.getItem('amna_users')||'[]'); let u=users.find(x=>x.tel==tel&&x.pass==pass); if(!u) return alert("Mauvais"); user={nom:u.nom,tel:u.tel,role:u.role}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals();}
 function logout(){localStorage.removeItem('amna_user'); user=null; renderAll(); closeModals();}
-function addPanier(n){if(!user) return openModal('compteModal'); panier.push(n); localStorage.setItem('amna_panier',JSON.stringify(panier)); renderAll();}
+function addPanier(n){
+  if(!user){ alert("Crée ton compte d'abord!"); return openModal('compteModal'); }
+  panier.push(n);
+  localStorage.setItem('amna_panier',JSON.stringify(panier));
+  let counts=document.querySelectorAll('#pcount');
+  counts.forEach(c=>c.innerText=panier.length);
+  alert(n + " ajouté! Panier: " + panier.length);
+  renderAll();
+}
 function renderPanier(){let div=document.getElementById('panierList'); div.innerHTML=panier.length? panier.map((x,i)=>`<div style='display:flex;justify-content:space-between;padding:6px;border-bottom:1px solid #eee;font-size:11px'><span>${x}</span><span style='color:red' onclick="panier.splice(${i},1);localStorage.setItem('amna_panier',JSON.stringify(panier));renderPanier();renderAll()">X</span></div>`).join('') : "<p style='text-align:center'>Vide</p>";}
-function commander(){if(!panier.length) return alert("Vide"); alert("Commande enregistree: "+panier.join(', ')); panier=[]; localStorage.setItem('amna_panier','[]'); renderAll(); closeModals();}
-function ajouterProduit(){if(!user) return openModal('compteModal'); let nom=document.getElementById('vNom').value, cat=document.getElementById('vCat').value, img=document.getElementById('vImg').value||"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300", telV=document.getElementById('vTel').value, desc=document.getElementById('vDesc').value; if(!nom) return alert("Nom obligatoire"); allProducts.push({name:nom,cat,img,vendeur:user.nom+" ("+telV+")",desc,statut:"attente"}); save(); let msg=`NOUVEAU PRODUIT A VALIDER%0A${user.nom} - ${telV}%0AProduit: ${nom}%0ACat: ${cat}%0ADesc: ${desc}`; window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,"_blank"); closeModals(); renderAll(); alert("Envoye en attente! Khadi va valider.");}
+function commander(){if(!panier.length) return alert("Vide"); alert("Commande: "+panier.join(', ')); panier=[]; localStorage.setItem('amna_panier','[]'); renderAll(); closeModals();}
+function ajouterProduit(){if(!user) return openModal('compteModal'); let nom=document.getElementById('vNom').value, cat=document.getElementById('vCat').value, img=document.getElementById('vImg').value||"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300", telV=document.getElementById('vTel').value, desc=document.getElementById('vDesc').value; if(!nom) return alert("Nom obligatoire"); allProducts.push({name:nom,cat,img,vendeur:user.nom+" ("+telV+")",desc,statut:"attente"}); save(); let msg=`NOUVEAU PRODUIT A VALIDER%0A${user.nom} - ${telV}%0A${nom}%0A${cat}%0A${desc}`; window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,"_blank"); closeModals(); renderAll();}
 function envoyerService(){let p=document.getElementById('sProduit').value, d=document.getElementById('sDesc').value; if(!d) return alert("Decris"); let u=user?user.nom+" "+user.tel:"Client"; window.open(`https://wa.me/${WA}?text=${encodeURIComponent("SERVICE CLIENT%0A"+u+"%0A"+p+"%0A"+d)}`,"_blank");}
 function renderAdmin(){let div=document.getElementById('adminList'); let attente=allProducts.filter(p=>p.statut=='attente'); div.innerHTML=attente.length? attente.map((p,i)=>{let idx=allProducts.indexOf(p); return `<div style='border:1px solid #ff8800;padding:8px;border-radius:8px;margin-bottom:8px'><img src="${p.img}" style="width:100%;height:80px;object-fit:cover"><p style='font-size:10px'><b>${p.name}</b><br>${p.vendeur}<br>${p.cat}</p><div style='display:flex;gap:5px'><button class="btn green" onclick="validerProd(${idx})">VALIDER</button><button class="btn" style="background:red" onclick="refuserProd(${idx})">REFUSER</button></div></div>`}).join('') : "<p style='text-align:center'>Aucun en attente</p>";}
 function validerProd(i){allProducts[i].statut='valide'; save(); renderAll(); renderAdmin();}
