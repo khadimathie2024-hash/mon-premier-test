@@ -21,13 +21,13 @@ body{background:#f2f2f2;padding-bottom:85px}
 .footer button{flex:1;padding:10px;border:none;border-radius:20px;font-weight:800;color:#fff;font-size:10px}
 .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);display:none;justify-content:center;align-items:center;z-index:99;padding:12px}
 .modal.show{display:flex}
-.box{background:#fff;width:100%;max-width:350px;border-radius:14px;padding:14px;max-height:92vh;overflow:auto}
+.box{background:#fff;width:100%;max-width:380px;border-radius:14px;padding:14px;max-height:92vh;overflow:auto}
 .box h3{color:#0a7a42;text-align:center;margin-bottom:8px}
 .box input,.box textarea,.box select{width:100%;padding:9px;border:1.5px solid #0a7a42;border-radius:10px;margin-bottom:6px;font-size:11px}
 </style>
 </head>
 <body>
-<div class="top"><b>AMNA LEUP SN</b><div><button class="btn-top" onclick="openModal('compteModal')" id="compteBtn">COMPTE</button><button class="btn-top" style="background:#ff8800;color:#fff;border-color:#ff8800" onclick="openModal('vendeurModal')">VENDRE</button><button class="btn-top" style="background:#0a7a42;color:#fff" onclick="openModal('panierModal')">PANIER <span id="pcount">0</span></button></div></div>
+<div class="top"><b>AMNA LEUP SN</b><div><button class="btn-top" onclick="openModal('compteModal')" id="compteBtn">COMPTE</button><button class="btn-top" style="background:#ff8800;color:#fff;border-color:#ff8800" onclick="openRestaurantFlow()">RESTAURANT</button><button class="btn-top" style="background:#ff8800;color:#fff;border-color:#ff8800" onclick="openModal('vendeurModal')">VENDRE</button><button class="btn-top" style="background:#0a7a42;color:#fff" onclick="openModal('panierModal')">PANIER <span id="pcount">0</span></button></div></div>
 
 <div class="sec"><h2>ALIMENTATION - Riz Huile Sucre Cafe Viande Poulet Poisson</h2><div class="grid">
 <div class="cage"><img src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300"><p>Riz 25kg</p><button class="btn black" onclick="addPanier('Riz 25kg')">PANIER</button></div>
@@ -137,52 +137,93 @@ body{background:#f2f2f2;padding-bottom:85px}
 </div>
 
 <div class="modal" id="compteModal"><div class="box"><h3>Compte</h3><div id="loggedOut"><input id="nom" placeholder="Nom"><input id="tel" placeholder="Tel"><input id="pass" type="password" placeholder="Pass"><select id="role"><option value="client">CLIENT</option><option value="vendeur">VENDEUR</option></select><button class="btn green" onclick="creerCompte()">CREER</button><hr style="margin:8px 0"><input id="telL" placeholder="Tel"><input id="passL" type="password" placeholder="Pass"><button class="btn green" onclick="login()">CONNECTER</button><p style="font-size:8px;text-align:center">Admin: 754560985 / AMNA2026</p></div><div id="loggedIn" style="display:none"><p id="bienvenue" style="text-align:center;font-weight:800"></p><button class="btn orange" id="btnAdmin" style="display:none" onclick="openModal('adminModal')">PANEL ADMIN</button><button class="btn" style="background:red;margin-top:8px" onclick="logout()">DECONNEXION</button></div><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
-<div class="modal" id="vendeurModal"><div class="box"><h3>VENDRE - Photo seulement</h3><input id="vNom" placeholder="Nom produit"><select id="vCat"><option>ALIMENTATION - Riz Huile Sucre Cafe Viande Poulet Poisson</option><option>MOTO - Toutes les Motos</option><option>VOITURE - Toutes les Voitures</option><option>LOGEMENT - Vente Location Appartement Studio Chambre</option><option>MAISON - Tous Accessoires Maison</option><option>CONSOLES DE JEUX - PlayStation Xbox Nintendo</option><option>INFORMATIQUE - Accessoires Complets</option><option>SMARTPHONES - Accessoires Telephones Complets</option><option>VETEMENTS - Homme Femme Chaussures Sacs</option><option>FEMME BEAUTE - Accessoires Femme</option></select><input id="vImg" placeholder="Lien photo ou vide"><input id="vTel" placeholder="Ton Whatsapp"><textarea id="vDesc" placeholder="Description"></textarea><button class="btn whatsapp" onclick="ajouterProduit()">ENVOYER POUR VALIDATION</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
+
+<!-- TON CODE - JE COMPLETE -->
+<div class="modal" id="vendeurModal"><div class="box"><h3>VENDRE - Photo seulement</h3><p id="vCatInfo" style="font-size:9px;text-align:center;color:red;font-weight:800"></p><input id="vNom" placeholder="Nom produit"><select id="vCat"><option>ALIMENTATION - Riz Huile Sucre Cafe Viande Poulet Poisson</option><option>MOTO - Toutes les Motos</option><option>VOITURE - Toutes les Voitures</option><option>LOGEMENT - Vente Location Appartement Studio Chambre</option><option>MAISON - Tous Accessoires Maison</option><option>CONSOLES DE JEUX - PlayStation Xbox Nintendo</option><option>INFORMATIQUE - Accessoires Complets</option><option>SMARTPHONES - Accessoires Telephones Complets</option><option>VETEMENTS - Homme Femme Chaussures Sacs</option><option>FEMME BEAUTE - Accessoires Femme</option></select><input id="vPrix" type="number" placeholder="Prix"><input id="vImg" placeholder="Lien photo"><input id="vTel" placeholder="Ton Whatsapp"><textarea id="vDesc" placeholder="Description"></textarea><button class="btn whatsapp" onclick="ajouterProduit()">ENVOYER</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
+
+<!-- AJOUT: CHOIX COMME TA PHOTO + RESTAURANT -->
+<div class="modal" id="choixCatModal"><div class="box" style="padding:0;max-width:380px"><div style="background:#0a7a42;color:#fff;padding:12px;text-align:center;font-weight:800">CHOISIS TA SPECIALITE - UNE SEULE FOIS!</div><div style="background:#222;color:#fff;max-height:70vh;overflow:auto">
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444;background:#ff8800"><span>🍛 RESTAURANT - Plats Menus</span><input type="radio" name="catspecial" value="RESTAURANT" checked style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>ALIMENTATION - Riz Huile...</span><input type="radio" name="catspecial" value="ALIMENTATION - Riz Huile Sucre Cafe Viande Poulet Poisson" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>MOTO - Toutes les Motos</span><input type="radio" name="catspecial" value="MOTO - Toutes les Motos" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>VOITURE - Toutes les Voitures</span><input type="radio" name="catspecial" value="VOITURE - Toutes les Voitures" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>LOGEMENT - Vente Location...</span><input type="radio" name="catspecial" value="LOGEMENT - Vente Location Appartement Studio Chambre" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>MAISON - Tous Accessoires</span><input type="radio" name="catspecial" value="MAISON - Tous Accessoires Maison" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>CONSOLES DE JEUX...</span><input type="radio" name="catspecial" value="CONSOLES DE JEUX - PlayStation Xbox Nintendo" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>INFORMATIQUE...</span><input type="radio" name="catspecial" value="INFORMATIQUE - Accessoires Complets" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>SMARTPHONES...</span><input type="radio" name="catspecial" value="SMARTPHONES - Accessoires Telephones Complets" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px;border-bottom:1px solid #444"><span>VETEMENTS...</span><input type="radio" name="catspecial" value="VETEMENTS - Homme Femme Chaussures Sacs" style="width:20px;height:20px"></label>
+<label style="display:flex;justify-content:space-between;align-items:center;padding:14px 12px"><span>FEMME BEAUTE...</span><input type="radio" name="catspecial" value="FEMME BEAUTE - Accessoires Femme" style="width:20px;height:20px"></label>
+</div><button class="btn" style="background:#0a7a42;margin:10px;width:calc(100% - 20px)" onclick="validerSpecialite()">VALIDER</button></div></div>
+
+<div class="modal" id="restauStep1Modal"><div class="box"><h3>🍛 Mon Restaurant</h3><input id="rNom" placeholder="Nom restaurant - Ex: Chez Fatou"><input id="rAdresse" placeholder="Adresse - Ex: Dakar Parcelles"><input id="rTel" placeholder="WhatsApp"><input id="rDesc" placeholder="Spécialité"><input id="rLogo" placeholder="Lien photo logo"><button class="btn" style="background:#ff8800" onclick="goStep2()">SUIVANT -> MENU</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">ANNULER</button></div></div>
+
+<div class="modal" id="restauStep2Modal"><div class="box"><h3>🍛 Menu avec Photos</h3><div id="menuList"><div style="background:#f9f9f9;padding:6px;border-radius:8px;margin-bottom:6px"><input class="platNom" placeholder="Nom plat - Ex: Thieb"><input class="platPrix" type="number" placeholder="Prix"><input class="platImg" placeholder="Lien photo plat"></div><div style="background:#f9f9f9;padding:6px;border-radius:8px;margin-bottom:6px"><input class="platNom" placeholder="Nom plat - Ex: Yassa"><input class="platPrix" type="number" placeholder="Prix"><input class="platImg" placeholder="Lien photo plat"></div><div style="background:#f9f9f9;padding:6px;border-radius:8px;margin-bottom:6px"><input class="platNom" placeholder="Nom plat - Ex: Mafé"><input class="platPrix" type="number" placeholder="Prix"><input class="platImg" placeholder="Lien photo plat"></div></div><button class="btn green" onclick="addPlatLigne()">+ AJOUTER PLAT</button><button class="btn orange" onclick="enregistrerRestau()">✅ PUBLIER DIRECT</button></div></div>
+
 <div class="modal" id="panierModal"><div class="box"><h3>Panier</h3><div id="panierList"></div><button class="btn green" onclick="commander()">COMMANDER</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
-<div class="modal" id="serviceModal"><div class="box"><h3>SERVICE CLIENTELE - 75 456 09 85</h3><input id="sProduit" placeholder="Produit"><textarea id="sDesc" placeholder="Ton probleme..."></textarea><button class="btn whatsapp" onclick="envoyerService()">ENVOYER WHATSAPP</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
-<div class="modal" id="adminModal"><div class="box"><h3>ADMIN - A VALIDER</h3><div id="adminList"></div><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
+<div class="modal" id="serviceModal"><div class="box"><h3>SERVICE CLIENT</h3><input id="sProduit" placeholder="Produit"><textarea id="sDesc" placeholder="Probleme..."></textarea><button class="btn whatsapp" onclick="envoyerService()">ENVOYER WHATSAPP</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
+<div class="modal" id="adminModal"><div class="box"><h3>ADMIN</h3><div id="adminList"></div><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
+
 <script>
 let WA="221754560985";
-let allProducts=JSON.parse(localStorage.getItem('amna_complet_sansprix')||'[]');
+let allProducts=JSON.parse(localStorage.getItem('amna_final')||'[]');
 let user=JSON.parse(localStorage.getItem('amna_user')||'null');
 let panier=JSON.parse(localStorage.getItem('amna_panier')||'[]');
-function save(){localStorage.setItem('amna_complet_sansprix',JSON.stringify(allProducts));}
+let restauTemp={};
+function save(){localStorage.setItem('amna_final',JSON.stringify(allProducts));}
 function renderAll(){
 let html=""; let cats={};
 allProducts.filter(p=>p.statut=='valide').forEach(p=>{if(!cats[p.cat]) cats[p.cat]=[]; cats[p.cat].push(p);});
 for(let cat in cats){
-html+=`<div class="sec"><h2>${cat} - Vendeurs</h2><div class="grid">`;
-cats[cat].forEach(p=>{
-html+=`<div class="cage"><img src="${p.img}"><p>${p.name}</p><div style="font-size:8px;color:#ff8800">${p.vendeur}</div><button class="btn black" onclick="addPanier('${p.name}')">PANIER</button></div>`;
-});
+html+=`<div class="sec"><h2>${cat}</h2><div class="grid">`;
+cats[cat].forEach(p=>{html+=`<div class="cage"><img src="${p.img}"><p>${p.name}<br><span style="color:green">${p.prix}F</span><br><small style="font-size:7px">${p.vendeur}</small></p><button class="btn black" onclick="addPanier('${p.name.replace(/'/g,"\\'")}')">PANIER</button></div>`;});
 html+=`</div></div>`;
 }
 document.getElementById('vendeurProducts').innerHTML=html;
-let counts=document.querySelectorAll('#pcount');
-counts.forEach(c=>c.innerText=panier.length);
-if(user){document.getElementById('compteBtn').innerText=user.nom.split(' ')[0]; document.getElementById('loggedOut').style.display='none'; document.getElementById('loggedIn').style.display='block'; document.getElementById('bienvenue').innerText=user.nom+" - "+user.tel; document.getElementById('btnAdmin').style.display=(user.tel=="754560985"||user.role=="admin")?"block":"none";} else {document.getElementById('compteBtn').innerText="COMPTE"; document.getElementById('loggedOut').style.display='block'; document.getElementById('loggedIn').style.display='none';}
+document.querySelectorAll('#pcount').forEach(c=>c.innerText=panier.length);
+if(user){document.getElementById('compteBtn').innerText=user.nom.split(' ')[0]; document.getElementById('loggedOut').style.display='none'; document.getElementById('loggedIn').style.display='block'; document.getElementById('bienvenue').innerText=user.nom+" - "+user.tel; document.getElementById('btnAdmin').style.display=(user.tel=="754560985")?"block":"none";} else {document.getElementById('compteBtn').innerText="COMPTE"; document.getElementById('loggedOut').style.display='block'; document.getElementById('loggedIn').style.display='none';}
 }
-function openModal(id){closeModals();document.getElementById(id).classList.add('show'); if(id=='panierModal') renderPanier(); if(id=='adminModal') renderAdmin();}
 function closeModals(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'))}
-function creerCompte(){let nom=document.getElementById('nom').value, tel=document.getElementById('tel').value, pass=document.getElementById('pass').value, role=document.getElementById('role').value; if(!nom||!tel||!pass) return alert("Remplis"); let users=JSON.parse(localStorage.getItem('amna_users')||'[]'); users.push({nom,tel,pass,role}); localStorage.setItem('amna_users',JSON.stringify(users)); user={nom,tel,role}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals();}
-function login(){let tel=document.getElementById('telL').value, pass=document.getElementById('passL').value; if(tel=="754560985" && pass=="AMNA2026"){user={nom:"Khadi ADMIN",tel,role:"admin"}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals(); return;} let users=JSON.parse(localStorage.getItem('amna_users')||'[]'); let u=users.find(x=>x.tel==tel&&x.pass==pass); if(!u) return alert("Mauvais"); user={nom:u.nom,tel:u.tel,role:u.role}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals();}
-function logout(){localStorage.removeItem('amna_user'); user=null; renderAll(); closeModals();}
-function addPanier(n){
-  if(!user){ alert("Crée ton compte d'abord!"); return openModal('compteModal'); }
-  panier.push(n);
-  localStorage.setItem('amna_panier',JSON.stringify(panier));
-  let counts=document.querySelectorAll('#pcount');
-  counts.forEach(c=>c.innerText=panier.length);
-  alert(n + " ajouté! Panier: " + panier.length);
-  renderAll();
+function openModal(id){
+  if(id=='vendeurModal' && user){
+    let maCat=localStorage.getItem('amna_macat_'+user.tel);
+    if(!maCat){ closeModals(); document.getElementById('choixCatModal').classList.add('show'); return; }
+    if(maCat=="RESTAURANT" || maCat.includes('RESTAURANT')){ closeModals(); openRestaurantFlow(); return; }
+    document.getElementById('vCat').innerHTML=`<option>${maCat}</option>`;
+    document.getElementById('vCatInfo').innerText="Bloqué: "+maCat;
+  }
+  closeModals(); document.getElementById(id).classList.add('show');
+  if(id=='panierModal') renderPanier();
+  if(id=='adminModal') renderAdmin();
 }
-function renderPanier(){let div=document.getElementById('panierList'); div.innerHTML=panier.length? panier.map((x,i)=>`<div style='display:flex;justify-content:space-between;padding:6px;border-bottom:1px solid #eee;font-size:11px'><span>${x}</span><span style='color:red' onclick="panier.splice(${i},1);localStorage.setItem('amna_panier',JSON.stringify(panier));renderPanier();renderAll()">X</span></div>`).join('') : "<p style='text-align:center'>Vide</p>";}
-function commander(){if(!panier.length) return alert("Vide"); alert("Commande: "+panier.join(', ')); panier=[]; localStorage.setItem('amna_panier','[]'); renderAll(); closeModals();}
-function ajouterProduit(){if(!user) return openModal('compteModal'); let nom=document.getElementById('vNom').value, cat=document.getElementById('vCat').value, img=document.getElementById('vImg').value||"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300", telV=document.getElementById('vTel').value, desc=document.getElementById('vDesc').value; if(!nom) return alert("Nom obligatoire"); allProducts.push({name:nom,cat,img,vendeur:user.nom+" ("+telV+")",desc,statut:"attente"}); save(); let msg=`NOUVEAU PRODUIT A VALIDER%0A${user.nom} - ${telV}%0A${nom}%0A${cat}%0A${desc}`; window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,"_blank"); closeModals(); renderAll();}
-function envoyerService(){let p=document.getElementById('sProduit').value, d=document.getElementById('sDesc').value; if(!d) return alert("Decris"); let u=user?user.nom+" "+user.tel:"Client"; window.open(`https://wa.me/${WA}?text=${encodeURIComponent("SERVICE CLIENT%0A"+u+"%0A"+p+"%0A"+d)}`,"_blank");}
-function renderAdmin(){let div=document.getElementById('adminList'); let attente=allProducts.filter(p=>p.statut=='attente'); div.innerHTML=attente.length? attente.map((p,i)=>{let idx=allProducts.indexOf(p); return `<div style='border:1px solid #ff8800;padding:8px;border-radius:8px;margin-bottom:8px'><img src="${p.img}" style="width:100%;height:80px;object-fit:cover"><p style='font-size:10px'><b>${p.name}</b><br>${p.vendeur}<br>${p.cat}</p><div style='display:flex;gap:5px'><button class="btn green" onclick="validerProd(${idx})">VALIDER</button><button class="btn" style="background:red" onclick="refuserProd(${idx})">REFUSER</button></div></div>`}).join('') : "<p style='text-align:center'>Aucun en attente</p>";}
+function validerSpecialite(){
+  let choix=document.querySelector('input[name="catspecial"]:checked').value;
+  if(!user){ alert("Crée compte!"); return openModal('compteModal'); }
+  localStorage.setItem('amna_macat_'+user.tel, choix);
+  if(choix=="RESTAURANT"){ closeModals(); openRestaurantFlow(); return; }
+  closeModals(); openModal('vendeurModal');
+}
+function openRestaurantFlow(){ if(!user){ alert("Crée compte!"); return openModal('compteModal'); } closeModals(); document.getElementById('restauStep1Modal').classList.add('show'); }
+function goStep2(){ let nom=document.getElementById('rNom').value, adresse=document.getElementById('rAdresse').value, tel=document.getElementById('rTel').value, desc=document.getElementById('rDesc').value, logo=document.getElementById('rLogo').value; if(!nom||!adresse||!tel) return alert("Remplis nom adresse tel!"); restauTemp={nom,adresse,tel,desc,logo}; closeModals(); document.getElementById('restauStep2Modal').classList.add('show'); }
+function addPlatLigne(){ let d=document.createElement('div'); d.style="background:#f9f9f9;padding:6px;border-radius:8px;margin-bottom:6px"; d.innerHTML=`<input class="platNom" placeholder="Nom plat"><input class="platPrix" type="number" placeholder="Prix"><input class="platImg" placeholder="Lien photo plat">`; document.getElementById('menuList').appendChild(d); }
+function enregistrerRestau(){
+  let noms=document.querySelectorAll('.platNom'), prixs=document.querySelectorAll('.platPrix'), imgs=document.querySelectorAll('.platImg');
+  let plats=[]; for(let i=0;i<noms.length;i++){ if(noms[i].value && prixs[i].value){ plats.push({nom:noms[i].value,prix:prixs[i].value,img:imgs[i].value||restauTemp.logo||"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=300"}); } }
+  if(!plats.length) return alert("Ajoute au moins 1 plat!");
+  plats.forEach(p=>{ allProducts.push({name:p.nom,cat:`🍛 RESTAURANT - ${restauTemp.nom} - ${restauTemp.adresse}`,img:p.img,vendeur:`${restauTemp.nom} - ${restauTemp.adresse} (${restauTemp.tel})`,prix:p.prix,desc:restauTemp.desc,statut:"valide"}); });
+  save(); alert(`${restauTemp.nom} publié avec ${plats.length} plats DIRECT!`); closeModals(); renderAll();
+}
+function creerCompte(){let n=document.getElementById('nom').value,t=document.getElementById('tel').value,p=document.getElementById('pass').value,r=document.getElementById('role').value; if(!n||!t||!p) return alert("Remplis"); let u=JSON.parse(localStorage.getItem('amna_users')||'[]'); if(u.find(x=>x.tel==t)) return alert("Tel existe"); u.push({nom:n,tel:t,pass:p,role:r}); localStorage.setItem('amna_users',JSON.stringify(u)); user={nom:n,tel:t,role:r}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals();}
+function login(){let t=document.getElementById('telL').value,p=document.getElementById('passL').value; if(t=="754560985"&&p=="AMNA2026"){user={nom:"ADMIN",tel:t,role:"admin"}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals(); return;} let u=JSON.parse(localStorage.getItem('amna_users')||'[]'); let x=u.find(a=>a.tel==t&&a.pass==p); if(!x) return alert("Mauvais"); user={nom:x.nom,tel:x.tel,role:x.role}; localStorage.setItem('amna_user',JSON.stringify(user)); renderAll(); closeModals();}
+function logout(){localStorage.removeItem('amna_user'); user=null; renderAll(); closeModals();}
+function addPanier(n){ if(!user){ alert("Crée compte!"); return openModal('compteModal'); } let prod=allProducts.find(p=>p.name===n); panier.push(prod||{name:n}); localStorage.setItem('amna_panier',JSON.stringify(panier)); document.querySelectorAll('#pcount').forEach(c=>c.innerText=panier.length); alert(n+" ajouté!"); }
+function renderPanier(){let d=document.getElementById('panierList'); if(!panier.length){d.innerHTML="<p style='text-align:center'>Vide</p>"; return;} d.innerHTML=panier.map((x,i)=>`<div style='display:flex;justify-content:space-between;padding:6px;border-bottom:1px solid #eee;font-size:11px'><span>${x.name}<br><small>${x.vendeur||''}</small></span><span style='color:red' onclick="panier.splice(${i},1);localStorage.setItem('amna_panier',JSON.stringify(panier));renderPanier();renderAll()">X</span></div>`).join('');}
+function commander(){ if(!panier.length) return alert("Vide"); if(!user) return openModal('compteModal'); let m=`COMMANDE AMNA LEUP%0AClient: ${user.nom} ${user.tel}%0A`+panier.map(p=>p.name).join('%0A'); window.open(`https://wa.me/${WA}?text=${m}`,"_blank"); panier=[]; localStorage.setItem('amna_panier','[]'); renderAll(); closeModals(); }
+function ajouterProduit(){ let cat=localStorage.getItem('amna_macat_'+user.tel)||document.getElementById('vCat').value; if(cat=="RESTAURANT"||cat.includes("RESTAURANT")) return openRestaurantFlow(); let nom=document.getElementById('vNom').value,prix=document.getElementById('vPrix').value,img=document.getElementById('vImg').value||"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300",telV=document.getElementById('vTel').value,desc=document.getElementById('vDesc').value; if(!nom||!prix) return alert("Nom + prix!"); allProducts.push({name:nom,cat,img,vendeur:user.nom+" ("+telV+")",prix,desc,statut:"attente"}); save(); alert("Envoyé! Catégorie: "+cat); closeModals(); renderAll(); }
+function envoyerService(){let p=document.getElementById('sProduit').value,d=document.getElementById('sDesc').value; if(!d) return alert("Decris"); let u=user?user.nom+" "+user.tel:"Client"; window.open(`https://wa.me/${WA}?text=${encodeURIComponent("SERVICE CLIENT%0A"+u+"%0A"+p+"%0A"+d)}`,"_blank");}
+function renderAdmin(){let div=document.getElementById('adminList'); let att=allProducts.filter(p=>p.statut=='attente'), val=allProducts.filter(p=>p.statut=='valide'); let h=`<h4 style='color:#ff8800;text-align:center'>EN ATTENTE (${att.length})</h4>`+att.map((p,i)=>{let idx=allProducts.indexOf(p); return `<div style='border:1px solid #ff8800;padding:8px;border-radius:8px;margin-bottom:8px'><p style='font-size:10px'><b>${p.name}</b><br>${p.vendeur}<br>${p.cat}<br>${p.prix}F</p><div style='display:flex;gap:5px'><button class="btn green" onclick="validerProd(${idx})">VALIDER</button><button class="btn" style="background:red" onclick="refuserProd(${idx})">REFUSER</button></div></div>`}).join('')+`<hr><h4 style='color:#0a7a42;text-align:center'>VALIDES (${val.length})</h4>`+val.map((p,i)=>{let idx=allProducts.indexOf(p); return `<div style='border:1px solid #0a7a42;padding:6px;border-radius:8px;margin-bottom:6px;display:flex;gap:6px'><img src="${p.img}" style="width:50px;height:50px"><div style='font-size:9px;flex:1'><b>${p.name}</b><br>${p.vendeur}<br>${p.cat}</div><button class="btn" style="background:red;width:70px;font-size:8px" onclick="refuserProd(${idx})">SUPPRIMER</button></div>`}).join(''); div.innerHTML=h;}
 function validerProd(i){allProducts[i].statut='valide'; save(); renderAll(); renderAdmin();}
-function refuserProd(i){allProducts.splice(i,1); save(); renderAll(); renderAdmin();}
+function refuserProd(i){if(confirm("Supprimer?")){allProducts.splice(i,1); save(); renderAll(); renderAdmin();}}
 renderAll();
 </script>
 </body>
