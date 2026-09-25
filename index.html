@@ -153,7 +153,6 @@ body{background:#f2f2f2;padding-bottom:85px}
 <option>FEMME BEAUTE - Accessoires Femme</option>
 <option>🍛 RESTAURANT - Plats Menus Restauration</option>
 </select>
-
 <label style="font-size:10px;font-weight:800;color:#0a7a42">📸 Photo produit - 2 choix:</label>
 <div style="display:flex;gap:6px;margin-bottom:6px">
 <button type="button" class="btn green" style="flex:1" onclick="document.getElementById('vImgCamera').click()">📸 CAMERA</button>
@@ -162,7 +161,6 @@ body{background:#f2f2f2;padding-bottom:85px}
 <input type="file" id="vImgCamera" accept="image/*" capture="environment" style="display:none" onchange="handleFile(this,'vImg','vPreview')">
 <input type="file" id="vImgGallery" accept="image/*" style="display:none" onchange="handleFile(this,'vImg','vPreview')">
 <input type="hidden" id="vImg"><img id="vPreview" style="width:100%;height:130px;object-fit:cover;border-radius:10px;display:none;margin:6px 0;border:2px solid #0a7a42">
-
 <input id="vPrix" type="number" placeholder="Prix FCFA"><input id="vTel" placeholder="Ton Whatsapp"><textarea id="vDesc" placeholder="Description"></textarea><button class="btn whatsapp" onclick="ajouterProduit()">ENVOYER</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
 
 <div class="modal" id="restauStep1Modal"><div class="box"><h3>🍛 Mon Restaurant</h3><input id="rNom" placeholder="Nom restaurant"><input id="rAdresse" placeholder="Adresse"><input id="rTel" placeholder="WhatsApp"><input id="rDesc" placeholder="Spécialité">
@@ -178,7 +176,13 @@ body{background:#f2f2f2;padding-bottom:85px}
 
 <div class="modal" id="restauStep2Modal"><div class="box"><h3>🍛 Menu avec Photos</h3><div id="menuList"></div><button class="btn green" onclick="addPlatLigne()">+ AJOUTER PLAT</button><button class="btn orange" onclick="enregistrerRestau()">✅ PUBLIER DIRECT</button></div></div>
 
-<div class="modal" id="panierModal"><div class="box"><h3>Panier</h3><div id="panierList"></div><button class="btn green" onclick="commander()">COMMANDER</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
+<div class="modal" id="panierModal"><div class="box"><h3>Panier</h3><div id="panierList"></div>
+<div style="margin-top:10px;border-top:1.5px solid #0a7a42;padding-top:8px;text-align:center">
+<p style="font-size:13px;font-weight:800;color:#0a7a42">🚚 Livraison disponible</p>
+<input type="hidden" id="livraison" value="Livraison disponible">
+</div>
+<button class="btn green" onclick="commander()">COMMANDER</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
+
 <div class="modal" id="serviceModal"><div class="box"><h3>SERVICE CLIENT</h3><input id="sProduit" placeholder="Produit"><textarea id="sDesc" placeholder="Probleme..."></textarea><button class="btn whatsapp" onclick="envoyerService()">ENVOYER WHATSAPP</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
 <div class="modal" id="adminModal"><div class="box"><h3>ADMIN</h3><div id="adminList"></div><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
 
@@ -233,7 +237,7 @@ function login(){let t=document.getElementById('telL').value,p=document.getEleme
 function logout(){localStorage.removeItem('amna_user'); user=null; renderAll(); closeModals();}
 function addPanier(n){ if(!user){ alert("Crée compte!"); return openModal('compteModal'); } let prod=allProducts.find(p=>p.name===n); panier.push(prod||{name:n}); localStorage.setItem('amna_panier',JSON.stringify(panier)); document.querySelectorAll('#pcount').forEach(c=>c.innerText=panier.length); alert(n+" ajouté!"); }
 function renderPanier(){let d=document.getElementById('panierList'); if(!panier.length){d.innerHTML="<p style='text-align:center'>Vide</p>"; return;} d.innerHTML=panier.map((x,i)=>`<div style='display:flex;justify-content:space-between;padding:6px;border-bottom:1px solid #eee;font-size:11px'><span>${x.name}<br><small>${x.vendeur||''}</small></span><span style='color:red' onclick="panier.splice(${i},1);localStorage.setItem('amna_panier',JSON.stringify(panier));renderPanier();renderAll()">X</span></div>`).join('');}
-function commander(){ if(!panier.length) return alert("Vide"); if(!user) return openModal('compteModal'); let m=`COMMANDE AMNA LEUP%0AClient: ${user.nom} ${user.tel}%0A`+panier.map(p=>p.name).join('%0A'); window.open(`https://wa.me/${WA}?text=${m}`,"_blank"); panier=[]; localStorage.setItem('amna_panier','[]'); renderAll(); closeModals(); }
+function commander(){ if(!panier.length) return alert("Vide"); if(!user) return openModal('compteModal'); let liv=document.getElementById('livraison').value; let m=`COMMANDE AMNA LEUP%0A${liv}%0AClient: ${user.nom} ${user.tel}%0A`+panier.map(p=>p.name).join('%0A'); window.open(`https://wa.me/${WA}?text=${m}`,"_blank"); panier=[]; localStorage.setItem('amna_panier','[]'); renderAll(); closeModals(); }
 function ajouterProduit(){
   let cat=document.getElementById('vCat').value;
   let nom=document.getElementById('vNom').value,prix=document.getElementById('vPrix').value,img=document.getElementById('vImg').value,telV=document.getElementById('vTel').value,desc=document.getElementById('vDesc').value;
