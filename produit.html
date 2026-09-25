@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Détail Produit - AMNA LEUP</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+header{background:#0a7a42;color:white;padding:12px;display:flex;gap:10px;align-items:center}
+.btn{border:none;border-radius:20px;padding:12px;font-weight:700;color:white;cursor:pointer;width:100%;margin-top:8px}
+.green{background:#0a7a42} .orange{background:#ff8c00} .black{background:#111}
+img{width:100%;height:300px;object-fit:cover}
+.body{padding:14px}
+.price{font-size:26px;color:#0a7a42;font-weight:900;margin:10px 0}
+.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee}
+</style>
+</head>
+<body>
+<header><button onclick="history.back()" style="background:white;border:none;border-radius:50%;width:32px;height:32px">←</button> <b>DÉTAIL PRODUIT</b></header>
+<img id="img">
+<div class="body">
+<h2 id="name"></h2>
+<div class="price" id="price"></div>
+<div class="row"><span>👤 Vendeur</span><b id="seller"></b></div>
+<div class="row"><span>📞 Téléphone</span><b id="tel"></b></div>
+<div class="row"><span>📦 Catégorie</span><b id="cat"></b></div>
+<div class="row"><span>👁️ Vues</span><b id="views"></b></div>
+<div class="row"><span>📝 Description</span></div>
+<p id="desc" style="background:#f5f5f5;padding:10px;border-radius:8px;margin-top:6px"></p>
+<button class="btn black" onclick="addPanier()">🛒 AJOUTER AU PANIER</button>
+<button class="btn green" onclick="whatsapp()">💬 CONTACTER VENDEUR WHATSAPP</button>
+<button class="btn orange" onclick="window.open('tel:'+tel)">📞 APPELER VENDEUR</button>
+</div>
+<script>
+let p=JSON.parse(localStorage.getItem('selectedProduit'));
+if(!p){document.body.innerHTML="<h2 style='padding:20px'>Produit non trouvé <a href='index.html'>Retour</a></h2>";}
+else{
+document.getElementById('img').src=p.img;
+document.getElementById('name').innerText=p.name;
+document.getElementById('price').innerText=p.price;
+document.getElementById('seller').innerText=p.seller;
+document.getElementById('tel').innerText=p.tel;
+document.getElementById('cat').innerText=p.cat;
+document.getElementById('views').innerText=p.views;
+document.getElementById('desc').innerText=p.desc;
+window.tel=p.tel;
+}
+function whatsapp(){window.open(`https://wa.me/221${p.tel.slice(-9)}?text=Salut ${p.seller}, je veux ${p.name} à ${p.price} sur AMNA LEUP`)}
+function addPanier(){alert('Ajouté au panier!');}
+</script>
+</body>
+</html>
