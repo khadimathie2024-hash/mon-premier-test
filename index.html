@@ -3,40 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMNA LEUP SN</title>
-<link rel="manifest" href="manifest.json">
+<title>AMNA LEUP SN - Made in Sénégal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{font-family:Arial;margin:0;background:#f5f5f5}
-.header{background:#008000;color:white;padding:15px;text-align:center}
-.search{padding:10px}
-.search input{width:90%;padding:10px;border-radius:20px;border:1px solid #ccc}
-.products{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.card{background:white;text-align:center;box-shadow:0 2px 5px #ccc;border-radius:10px;padding:10px}
-.card img{width:100%;height:100px;object-fit:contain}
-.price{color:green;font-weight:bold}
-.btn{background:#25D366;color:white;border:none;padding:10px;width:100%;border-radius:10px}
-#cart{position:fixed;bottom:0;width:100%;background:black;color:white;padding:15px;text-align:center}
+*{font-family:'Poppins',sans-serif;box-sizing:border-box;margin:0;padding:0}
+body{background:#f5f5f5;padding-bottom:90px}
+.topbar{background:#fff;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.topbar b{color:#0a7a42;font-size:18px}
+.badge{background:#e6f4ea;color:#0a7a42;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.hero{background:linear-gradient(100deg,#0a7a42 0%,#f9d000 50%,#e31e24 100%);margin:12px;border-radius:20px;padding:22px;color:#000;position:relative;overflow:hidden}
+.hero h1{font-size:26px;font-weight:800;line-height:1.1}
+.hero p{margin-top:8px;font-size:13px;background:rgba(255,255,255,.85);display:inline-block;padding:6px 12px;border-radius:20px;font-weight:600}
+.hero small{display:block;margin-top:12px;font-weight:600}
+.search{padding:12px 15px}
+.search input{width:100%;padding:14px 18px;border-radius:30px;border:none;box-shadow:0 5px 20px rgba(0,0,0,.07);outline:none}
+.cats{display:flex;gap:10px;overflow-x:auto;padding:0 15px 5px;scrollbar-width:none}
+.cat{background:#fff;padding:10px 18px;border-radius:30px;white-space:nowrap;font-size:13px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid #eee}
+.cat.active{background:#0a7a42;color:#fff}
+.section-title{padding:15px 15px 5px;font-weight:700;font-size:16px;display:flex;justify-content:space-between}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 15px}
+.card{background:#fff;border-radius:18px;padding:10px;box-shadow:0 4px 18px rgba(0,0,0,.05);position:relative}
+.card img{width:100%;height:135px;object-fit:cover;border-radius:12px;background:#f0f0f0}
+.card .off{position:absolute;top:16px;left:16px;background:#e31e24;color:#fff;font-size:10px;font-weight:700;padding:3px 7px;border-radius:20px}
+.card h4{font-size:13px;margin:8px 0 4px;line-height:1.2;height:32px;overflow:hidden}
+.stars{color:#ffb800;font-size:11px}
+.price{font-weight:800;color:#0a7a42;margin-top:4px}
+.old{font-size:11px;color:#999;text-decoration:line-through;margin-left:5px;font-weight:400}
+.btn{background:#111;color:#fff;border:none;width:100%;padding:9px;border-radius:30px;font-size:13px;font-weight:600;margin-top:7px}
+.trust{display:flex;gap:10px;padding:15px;overflow-x:auto}
+.trust div{background:#fff;padding:12px;border-radius:14px;min-width:140px;text-align:center;font-size:12px;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+#cart{position:fixed;bottom:15px;left:15px;right:15px;background:#111;color:#fff;padding:14px 18px;border-radius:35px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 15px 35px rgba(0,0,0,.3);z-index:99}
+#cart button{background:#25D366;border:none;color:#fff;padding:10px 22px;border-radius:30px;font-weight:700}
 </style>
 </head>
 <body>
-<div class="header"><h2>AMNA LEUP SN</h2><p>Tous les produits livrés à Dakar</p></div>
-<div class="search"><input id="search" onkeyup="chercher()" placeholder="Chercher..."></div>
-<div class="products" id="products"></div>
-<div id="cart">Panier : 0 FCFA <button onclick="commander()">Commander</button></div>
-<script>
-let produits=[
-{nom:"Samsung A55",prix:285000,image:"https://via.placeholder.com/150?text=Phone"},
-{nom:"Nike Air Max",prix:45000,image:"https://via.placeholder.com/150?text=Shoes"},
-{nom:"Chic Chemise",prix:12000,image:"https://via.placeholder.com/150?text=Wax"},
-{nom:"Robe Africaine",prix:25000,image:"https://via.placeholder.com/150?text=Robe"},
-{nom:"Tecno Spark 20",prix:95000,image:"https://via.placeholder.com/150?text=Tecno"}
-];
-let total=0,panier=[];
-function afficher(liste){let html="";for(let p of liste){html+=`<div class="card"><img src="${p.image}"><h4>${p.nom}</h4><div class="price">${p.prix} FCFA</div><button class="btn" onclick="ajouter(${p.prix},'${p.nom}')">Ajouter</button></div>`;}document.getElementById("products").innerHTML=html;}
-function ajouter(prix,nom){total+=prix;panier.push(nom);document.getElementById("cart").innerHTML=`Panier : ${total} FCFA <button onclick="commander()">Commander</button>`;}
-function chercher(){let q=document.getElementById("search").value.toLowerCase();afficher(produits.filter(pr=>pr.nom.toLowerCase().includes(q)));}
-function commander(){if(panier.length==0){alert("Ajoute un produit d'abord");return;}let msg=`Salam AMNA LEUP SN, je veux: ${panier.join(", ")} Total: ${total} FCFA`;window.open(`https://wa.me/221XXXXXXXX?text=${encodeURIComponent(msg)}`);}
-afficher(produits);
-</script>
-</body>
-</html>
+<div class="topbar
