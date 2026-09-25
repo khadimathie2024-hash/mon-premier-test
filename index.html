@@ -1,40 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMNA LEUP SN - Made in Sénégal</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMNA LEUP SN</title>
 <style>
-*{font-family:'Poppins',sans-serif;box-sizing:border-box;margin:0;padding:0}
-body{background:#f5f5f5;padding-bottom:90px}
-.topbar{background:#fff;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.topbar b{color:#0a7a42;font-size:18px}
-.badge{background:#e6f4ea;color:#0a7a42;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700}
-.hero{background:linear-gradient(100deg,#0a7a42 0%,#f9d000 50%,#e31e24 100%);margin:12px;border-radius:20px;padding:22px;color:#000;position:relative;overflow:hidden}
-.hero h1{font-size:26px;font-weight:800;line-height:1.1}
-.hero p{margin-top:8px;font-size:13px;background:rgba(255,255,255,.85);display:inline-block;padding:6px 12px;border-radius:20px;font-weight:600}
-.hero small{display:block;margin-top:12px;font-weight:600}
-.search{padding:12px 15px}
-.search input{width:100%;padding:14px 18px;border-radius:30px;border:none;box-shadow:0 5px 20px rgba(0,0,0,.07);outline:none}
-.cats{display:flex;gap:10px;overflow-x:auto;padding:0 15px 5px;scrollbar-width:none}
-.cat{background:#fff;padding:10px 18px;border-radius:30px;white-space:nowrap;font-size:13px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid #eee}
-.cat.active{background:#0a7a42;color:#fff}
-.section-title{padding:15px 15px 5px;font-weight:700;font-size:16px;display:flex;justify-content:space-between}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 15px}
-.card{background:#fff;border-radius:18px;padding:10px;box-shadow:0 4px 18px rgba(0,0,0,.05);position:relative}
-.card img{width:100%;height:135px;object-fit:cover;border-radius:12px;background:#f0f0f0}
-.card .off{position:absolute;top:16px;left:16px;background:#e31e24;color:#fff;font-size:10px;font-weight:700;padding:3px 7px;border-radius:20px}
-.card h4{font-size:13px;margin:8px 0 4px;line-height:1.2;height:32px;overflow:hidden}
-.stars{color:#ffb800;font-size:11px}
-.price{font-weight:800;color:#0a7a42;margin-top:4px}
-.old{font-size:11px;color:#999;text-decoration:line-through;margin-left:5px;font-weight:400}
-.btn{background:#111;color:#fff;border:none;width:100%;padding:9px;border-radius:30px;font-size:13px;font-weight:600;margin-top:7px}
-.trust{display:flex;gap:10px;padding:15px;overflow-x:auto}
-.trust div{background:#fff;padding:12px;border-radius:14px;min-width:140px;text-align:center;font-size:12px;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-#cart{position:fixed;bottom:15px;left:15px;right:15px;background:#111;color:#fff;padding:14px 18px;border-radius:35px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 15px 35px rgba(0,0,0,.3);z-index:99}
-#cart button{background:#25D366;border:none;color:#fff;padding:10px 22px;border-radius:30px;font-weight:700}
+*{font-family:Arial,sans-serif;box-sizing:border-box;margin:0}
+body{background:#f2f2f2;padding-bottom:20px}
+.top{background:#fff;padding:14px;text-align:center;border-bottom:4px solid #0a7a42;position:sticky;top:0;z-index:10}
+.top b{color:#0a7a42;font-size:16px}
+.hero{margin:10px;background:linear-gradient(90deg,#0a7a42,#ffcc00,#e31e24);padding:14px;border-radius:15px;text-align:center;font-weight:800;font-size:14px}
+.sec{background:#fff;margin:10px;border-radius:14px;padding:10px;border:2px solid #0a7a42}
+.sec h2{background:#0a7a42;color:#fff;padding:8px;border-radius:20px;font-size:12px;text-align:center;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cage{border:1px solid #ddd;border-radius:12px;padding:8px;text-align:center;background:#fff}
+.cage img{width:100%;height:90px;object-fit:cover;border-radius:8px}
+.cage p{font-size:11px;font-weight:700;margin:5px 0;min-height:30px}
+.btn{width:100%;background:#111;color:#fff;border:none;padding:7px;border-radius:20px;font-size:10px;font-weight:800}
 </style>
 </head>
 <body>
-<div class="topbar
+<div class="top"><b>AMNA LEUP SN - MARCHE COMPLET</b></div>
+<div class="hero">TOUT DAKAR EN 1 APP - Scroll en bas tu verras tout avec photos</div>
+
+<div class="sec"><h2>ALIMENTATION - Riz Huile Sucre Cafe Chocolat Beurre Lait</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=300"><p>Riz 25kg</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300"><p>Huile 20L</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=300"><p>Sucre 1kg</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=300"><p>Cafe Touba</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=300"><p>Chocolat</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=300"><p>Beurre / Lait</p><button class="btn">VOIR</button></div>
+</div></div>
+
+<div class="sec"><h2>MOTO - Jakarta Yamaha Honda Suzuki KTM</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300"><p>Jakarta 125</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=300"><p>Yamaha</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=300"><p>Honda</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=300"><p>Suzuki / KTM</p><button class="btn">VOIR</button></div>
+</div></div>
+
+<div class="sec"><h2>VOITURE - Toyota Hyundai Kia Mercedes Range</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=300"><p>Toyota Corolla</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=300"><p>Toyota Hilux</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"><p>Mercedes / Range Rover</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300"><p>Hyundai / Kia / Peugeot</p><button class="btn">VOIR</button></div>
+</div></div>
+
+<div class="sec"><h2>LOGEMENT - Vente et Location</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=300"><p>Maison a vendre</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300"><p>Maison a louer</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=300"><p>Appartement</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=300"><p>Studio / Chambre</p><button class="btn">VOIR</button></div>
+</div></div>
+
+<div class="sec"><h2>INFORMATIQUE - HP Dell MacBook Imprimante</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300"><p>PC HP Dell</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=300"><p>MacBook</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=300"><p>Imprimante / Ecran</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=300"><p>Clavier / Souris / Cle USB</p><button class="btn">VOIR</button></div>
+</div></div>
+
+<div class="sec"><h2>SMARTPHONES - iPhone Samsung Tecno Tablette</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300"><p>iPhone 14</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300"><p>Samsung / Tecno / Infinix</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300"><p>Tablette Samsung</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300"><p>Chargeur / Power Bank / Ecouteurs</p><button class="btn">VOIR</button></div>
+</div></div>
+
+<div class="sec"><h2>VETEMENTS - Homme Femme Chaussures Sacs</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300"><p>Boubou Homme / T-shirt</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300"><p>Wax Femme / Voile / Robe</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300"><p>Chaussures Homme Femme</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300"><p>Sacs / Casquette / Ceinture</p><button class="btn">VOIR</button></div>
+</div></div>
+
+<div class="sec"><h2>MAISON - Canape Lit Frigo Clim Marmite Rideaux</h2><div class="grid">
+<div class="cage"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300"><p>Canape / Lit / Matelas</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=300"><p>Frigo / Clim / Ventilo</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=300"><p>Marmite / Assiettes / Seau</p><button class="btn">VOIR</button></div>
+<div class="cage"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=300"><p>Rideaux / Balai</p><button class="btn">VOIR</button></div>
+</div></div>
+
+</body>
+</html>
