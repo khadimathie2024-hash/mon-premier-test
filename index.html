@@ -324,16 +324,20 @@ function payerWave(){
 }
 function commander(){if(!panier.length) return alert("Vide");if(!user) return openModal('compteModal');panier.forEach(p=>{let v=p.vendeur||'Inconnu';ventesMap[v]=(ventesMap[v]||0)+1;});save();let grandTotal=0; panier.forEach(p=>{grandTotal+=(parseInt(p.prix)||0)*(p.qty||1);});let liv=document.getElementById('livraison').value;let detail=panier.map(p=>`${p.name} x${p.qty||1} = ${(parseInt(p.prix)||0)*(p.qty||1)}F`).join('%0A');let m=`COMMANDE AMNA LEUP%0A${liv}%0AClient: ${user.nom} ${user.tel}%0A${detail}%0ATOTAL: ${grandTotal}F (prix vendeurs)`;window.open(`https://wa.me/${WA}?text=${m}`,"_blank");panier=[];save();renderAll();closeModals();}
 function ajouterProduitSecurise(){
- let cat=nettoyerTexte(document.getElementById('vCat').value);
- let nom=nettoyerTexte(document.getElementById('vNom').value);
- let prix=parseInt(document.getElementById('vPrix').value);
- let img=document.getElementById('vImg').value;
- let telV=nettoyerTexte(document.getElementById('vTel').value);
- let desc=nettoyerTexte(document.getElementById('vDesc').value);
- if(!nom||!prix) return alert("Nom + prix obligatoire!");
- if(prix<100||prix>50000000)return alert("Prix 100F à 50M FCFA max - Sécurité!");
- if(!img) return alert("📸 Photo obligatoire!");
- if(img.length>500000)return alert("Photo trop lourde Max 2MB - compresse!");
+  let cat=nettoyerTexte(document.getElementById('vCat').value);
+  let nom=nettoyerTexte(document.getElementById('vNom').value);
+  let prix=parseInt(document.getElementById('vPrix').value);
+  let img=document.getElementById('vImg').value;
+  let telV=nettoyerTexte(document.getElementById('vTel').value);
+  let quartier=nettoyerTexte(document.getElementById('quartier').value);
+  let desc=nettoyerTexte(document.getElementById('vDesc').value);
+  if(!nom||!prix) return alert("Nom + prix obligatoire!");
+  if(!quartier) return alert("Mets quartier!");
+  if(prix<100||prix>50000000)return alert("Prix 100F à 50M FCFA max - Sécurité!");
+  if(!img) return alert("📸 Photo obligatoire!");
+  if(img.length>500000)return alert("Photo trop lourde Max 2MB - compresse!");
+  allProducts.push({name:nom,cat,img,vendeur:user.nom+" ("+telV+")",prix,desc,quartier,statut:"attente",vues:0,dateAdded:Date.now()});
+  save();alert("Envoyé! Quartier: "+quartier);closeModals();renderAll();}
  allProducts.push({name:nom,cat,img,vendeur:user.nom+" ("+telV+")",prix,desc,statut:"attente",vues:0,dateAdded:Date.now()});
  save();alert("Envoyé sécurisé! Prix vendeur: "+prix+"F");closeModals();renderAll();document.getElementById('vImg').value='';document.getElementById('vPreview').style.display='none';
 }
