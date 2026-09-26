@@ -37,7 +37,6 @@ body{background:#f2f2f2;padding-bottom:85px}
 .qty-box{display:flex;align-items:center;gap:6px;margin-top:4px}
 .qty-btn{width:28px;height:28px;border-radius:50%;border:1.5px solid #0a7a42;background:#fff;font-weight:900}
 .secure-badge{font-size:7px;background:#111;color:#0f0;padding:2px 6px;border-radius:10px;margin-left:5px}
-/* PAGINATION AJOUTEE - RIEN ENLEVE */
 #paginationMain{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:15px;margin:10px;background:#fff;border-radius:14px;border:2px solid #0a7a42}
 #paginationMain button{padding:8px 12px;border:1.5px solid #0a7a42;background:#fff;color:#0a7a42;border-radius:20px;font-weight:800;font-size:11px;cursor:pointer}
 #paginationMain button.active{background:#0a7a42;color:#fff}
@@ -156,7 +155,6 @@ body{background:#f2f2f2;padding-bottom:85px}
 <div class="modal" id="serviceModal"><div class="box"><h3>SERVICE CLIENT</h3><input id="sProduit" placeholder="Produit"><textarea id="sDesc" placeholder="Probleme..."></textarea><button class="btn whatsapp" onclick="envoyerService()">ENVOYER WHATSAPP</button><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
 <div class="modal" id="adminModal"><div class="box"><h3>ADMIN SÉCURISÉ 🔒</h3><div id="adminList"></div><button class="btn" style="background:#ddd;color:#000" onclick="closeModals()">FERMER</button></div></div>
 <script>
-// === SÉCURITÉ + PAGINATION INFINIE - RIEN ENLEVÉ ===
 if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js');}
 function hashSecurise(str){let h=0;for(let i=0;i<str.length;i++){h=((h<<5)-h)+str.charCodeAt(i);h|=0;}return h.toString();}
 function nettoyerTexte(t){if(!t)return"";return t.replace(/<[^>]*>/g,'').replace(/script/gi,'').trim().substring(0,120);}
@@ -170,7 +168,6 @@ let vuesMap=JSON.parse(localStorage.getItem('amna_vues')||'{}');
 let partagesMap=JSON.parse(localStorage.getItem('amna_partages')||'{}');
 let ventesMap=JSON.parse(localStorage.getItem('amna_ventes')||'{}');
 let filtreTexte=""; let filtreCat="tout"; let restauTemp={};
-// PAGINATION - AJOUT SEULEMENT
 let pageActuelleVendeur=1; const produitsParPageVendeur=20; let filteredVendeurCache=[];
 
 function handleFileSecurise(input,targetId,previewId){
@@ -337,13 +334,16 @@ function ajouterProduitSecurise(){
   if(!img) return alert("📸 Photo obligatoire!");
   if(img.length>500000)return alert("Photo trop lourde Max 2MB - compresse!");
   allProducts.push({name:nom,cat,img,vendeur:user.nom+" ("+telV+")",prix,desc,quartier,statut:"attente",vues:0,dateAdded:Date.now()});
-  save();alert("Envoyé! Quartier: "+quartier);closeModals();renderAll();}
- allProducts.push({name:nom,cat,img,vendeur:user.nom+" ("+telV+")",prix,desc,statut:"attente",vues:0,dateAdded:Date.now()});
- save();alert("Envoyé sécurisé! Prix vendeur: "+prix+"F");closeModals();renderAll();document.getElementById('vImg').value='';document.getElementById('vPreview').style.display='none';
+  save();
+  alert("Envoyé! Quartier: "+quartier);
+  closeModals();
+  renderAll();
+  document.getElementById('vImg').value='';
+  document.getElementById('vPreview').style.display='none';
 }
 function ajouterProduit(){ajouterProduitSecurise();}
 function envoyerService(){let p=nettoyerTexte(document.getElementById('sProduit').value),d=nettoyerTexte(document.getElementById('sDesc').value);if(!d) return alert("Decris");let u=user?user.nom+" "+user.tel:"Client";window.open(`https://wa.me/${WA}?text=${encodeURIComponent("SERVICE CLIENT%0A"+u+"%0A"+p+"%0A"+d)}`,"_blank");}
-function renderAdmin(){let div=document.getElementById('adminList');let att=allProducts.filter(p=>p.statut=='attente'),val=allProducts.filter(p=>p.statut=='valide');let h=`<h4 style='color:#ff8800;text-align:center'>EN ATTENTE (${att.length})</h4>`+att.map((p,i)=>{let idx=allProducts.indexOf(p);return `<div style='border:1px solid #ff8800;padding:8px;border-radius:8px;margin-bottom:8px'><img src="${p.img}" style="width:100%;height:80px;object-fit:cover;border-radius:6px"><p style='font-size:10px'><b>${nettoyerTexte(p.name)}</b><br>${nettoyerTexte(p.vendeur)}<br>${nettoyerTexte(p.cat)}<br>${p.prix}F (prix vendeur)<br>👁️ ${vuesMap[p.name]||0} 📤 ${partagesMap[p.name]||0}<br>${nettoyerTexte(p.desc||'')}</p><div style='display:flex;gap:5px'><button class="btn green" onclick="validerProd(${idx})">VALIDER</button><button class="btn" style="background:red" onclick="refuserProd(${idx})">REFUSER</button></div></div>`}).join('')+`<hr><h4 style='color:#0a7a42;text-align:center'>VALIDES (${val.length})</h4>`+val.map((p,i)=>{let idx=allProducts.indexOf(p);return `<div style='border:1px solid #0a7a42;padding:6px;border-radius:8px;margin-bottom:6px;display:flex;gap:6px'><img src="${p.img}" style="width:50px;height:50px"><div style='font-size:9px;flex:1'><b>${nettoyerTexte(p.name)}</b><br>${nettoyerTexte(p.vendeur)}<br>${nettoyerTexte(p.cat)}<br>👁️ ${vuesMap[p.name]||p.vues||0} 📤 ${partagesMap[p.name]||0}<br>Ventes: ${ventesMap[p.vendeur]||0}</div><button class="btn" style="background:red;width:70px;font-size:8px" onclick="refuserProd(${idx})">SUPPRIMER</button></div>`}).join('');div.innerHTML=h;}
+function renderAdmin(){let div=document.getElementById('adminList');let att=allProducts.filter(p=>p.statut=='attente'),val=allProducts.filter(p=>p.statut=='valide');let h=`<h4 style='color:#ff8800;text-align:center'>EN ATTENTE (${att.length})</h4>`+att.map((p,i)=>{let idx=allProducts.indexOf(p);return `<div style='border:1px solid #ff8800;padding:8px;border-radius:8px;margin-bottom:8px'><img src="${p.img}" style="width:100%;height:80px;object-fit:cover;border-radius:6px"><p style='font-size:10px'><b>${nettoyerTexte(p.name)}</b><br>${nettoyerTexte(p.vendeur)}<br>${nettoyerTexte(p.cat)}<br>${p.prix}F (prix vendeur)<br>Quartier: ${nettoyerTexte(p.quartier||'Non précisé')}<br>👁️ ${vuesMap[p.name]||0} 📤 ${partagesMap[p.name]||0}<br>${nettoyerTexte(p.desc||'')}</p><div style='display:flex;gap:5px'><button class="btn green" onclick="validerProd(${idx})">VALIDER</button><button class="btn" style="background:red" onclick="refuserProd(${idx})">REFUSER</button></div></div>`}).join('')+`<hr><h4 style='color:#0a7a42;text-align:center'>VALIDES (${val.length})</h4>`+val.map((p,i)=>{let idx=allProducts.indexOf(p);return `<div style='border:1px solid #0a7a42;padding:6px;border-radius:8px;margin-bottom:6px;display:flex;gap:6px'><img src="${p.img}" style="width:50px;height:50px"><div style='font-size:9px;flex:1'><b>${nettoyerTexte(p.name)}</b><br>${nettoyerTexte(p.vendeur)}<br>${nettoyerTexte(p.cat)}<br>Quartier: ${nettoyerTexte(p.quartier||'')}<br>👁️ ${vuesMap[p.name]||p.vues||0} 📤 ${partagesMap[p.name]||0}<br>Ventes: ${ventesMap[p.vendeur]||0}</div><button class="btn" style="background:red;width:70px;font-size:8px" onclick="refuserProd(${idx})">SUPPRIMER</button></div>`}).join('');div.innerHTML=h;}
 function validerProd(i){allProducts[i].statut='valide';if(!allProducts[i].dateAdded)allProducts[i].dateAdded=Date.now();save();renderAll();renderAdmin();}
 function refuserProd(i){if(confirm("Supprimer?")){allProducts.splice(i,1);save();renderAll();renderAdmin();}}
 function voirDetail(el){let cage=el.closest('.cage');if(!cage) return;let nom=cage.querySelector('p').innerText.split('\n')[0].trim();let img=cage.querySelector('img').src;let produit={name:nom,nom:nom,price:"Prix vendeur",prix:"Prix vendeur",img:img,seller:"Vendeur AMNA LEUP SN",vendeur:"Vendeur AMNA LEUP SN",tel:"771234567",cat:"General",categorie:"General",views:Math.floor(Math.random()*900)+120,desc:nettoyerTexte(nom)+" disponible sur AMNA LEUP SN. Prix fixé par le vendeur."};localStorage.setItem('selectedProduit',JSON.stringify(produit));window.location.href='produit.html';}
@@ -352,4 +352,4 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
 renderAll();
 </script>
 </body>
-</html
+</html>
